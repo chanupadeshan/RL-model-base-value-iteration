@@ -14,13 +14,13 @@ The best policy is determined by using both state values and action values.
 
 2.  **Action Value Calculation**: Once the optimal state values are found, we can determine the best policy. For each state `s`, we calculate the value of taking each action `a`. This is the action-value function, `Q(s, a)`, calculated as follows:
 
-    `Q(s, a) = R(s, a) + γ * Σ [P(s'|s, a) * V(s')]`
+    `Q(s, a) = Σ [P(s'|s, a) * R(s, a) + γ * V(s')]`
 
     Where:
     - `R(s, a)` is the immediate reward for taking action `a` in state `s`.
     - `γ` is the discount factor.
     - `P(s'|s, a)` is the probability of transitioning to state `s'` from state `s` after taking action `a`.
-    - `V(s')` is the optimal value of the next state `s'`.
+    - `γ *V(s')` calculate discounted future rewards.
 
 3.  **Best Policy Selection**: The optimal policy `π*(s)` for each state `s` is to select the action `a` that maximizes the action value `Q(s, a)`.
 
